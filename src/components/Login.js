@@ -9,14 +9,17 @@ const Login = () => {
     const Validate =(e) =>{
         e.preventDefault();
         LoginService.Validate(userName).then((response)=>{
-            
+          console.log('validating start');
             if(password===response.data.password){
                 console.log('logging');
             navigate('/employees');
         }
         else{
-          alert("Invalid credentials")
+          console.log('invalid credentials');
+          alert("wrong password")
         }
+        }).catch(err =>{
+          alert("Invalid credentials")
         })
 
     }
