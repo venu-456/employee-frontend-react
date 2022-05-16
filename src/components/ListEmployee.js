@@ -47,7 +47,8 @@ const deleteEmployee = (employeeId) =>{
                                     <td>
                                         <Link className="btn btn-info" to = {`/home/edit-employee/${employee.id}`}>update</Link>
                                         <button className="btn btn-danger" onClick={() => deleteEmployee(employee.id)}
-                                        style = {{marginLeft:"10px"}}>delete</button>
+                                        style = {{marginLeft:"10px",marginRight:"10px"}}>delete</button>
+                                        <Link className="btn btn-info" to = {"/home/profile"} >View</Link>
                                     </td>
                                 </tr>
 

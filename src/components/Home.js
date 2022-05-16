@@ -3,7 +3,8 @@ import '../home.css'
 import {Route,Routes} from "react-router-dom";
 import ListEmployee from "./ListEmployee";
 import AddEmployeeComponent from "./AddEmployeeComponent";
-import Profile from "./Profile"
+import Profile from "./Profile";
+import Settings from './Settings';
 export const Home = () => {
     const [isActive, setIsActive] = useState(false);
     const toggle =(e)=>{
@@ -36,7 +37,7 @@ export const Home = () => {
             <i className='bx bxs-user-circle'></i>
             Profile</a>
             </li>
-            <li className="nav-items"><a href="/home" className="nav-link text-dark bg-light">
+            <li className="nav-items"><a href="/home/settings" className="nav-link text-dark bg-light">
             <i className='bx bx-wrench'></i>
             Settings</a>
             </li>
@@ -57,6 +58,7 @@ export const Home = () => {
                 <Route path="/add-employee" element={<AddEmployeeComponent/>}/>
                 <Route path="/edit-employee/:id" element ={<AddEmployeeComponent/>}/>
                 <Route path="/profile" element={<Profile/>}/>
+                <Route path="/settings" element={<Settings/>}/>
             </Routes>
         </div>
 
