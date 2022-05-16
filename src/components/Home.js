@@ -28,11 +28,11 @@ export const Home = () => {
             <i className='bx bx-home' ></i>
             Home</a>
             </li>
-            <li className="nav-items"><a href="home/employees" className="nav-link text-dark bg-light">
+            <li className="nav-items"><a href="/home/employees" className="nav-link text-dark bg-light">
             <i className='bx bx-group'></i>
             View Employees</a>
             </li>
-            <li className="nav-items"><a href="home/profile" className="nav-link text-dark bg-light">
+            <li className="nav-items"><a href="/home/profile" className="nav-link text-dark bg-light">
             <i className='bx bxs-user-circle'></i>
             Profile</a>
             </li>
