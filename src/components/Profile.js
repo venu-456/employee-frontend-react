@@ -2,27 +2,26 @@ import React from 'react'
 
 const profile = () => {
   return (
-    <div>
-      <div className="card" style="width: 18rem;">
-  <img src="..." className="card-img-top" alt="..."/>
+ 
+      <div className="card mx-auto w-50 p-3" >
+  <img src="/images/venu.jpg" className="card-img-top" alt="..."/>
   <div className="card-body">
-    <h5 className="card-title">Card title</h5>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 className="card-title">Venugopal reddy</h5>
+    <p className="card-text">tell us something about your-self to make it visible here</p>
   </div>
   <ul className="list-group list-group-flush">
-    <li className="list-group-item">An item</li>
-    <li className="list-group-item">A second item</li>
-    <li className="list-group-item">A third item</li>
+    <li className="list-group-item">Developer</li>
+    <li className="list-group-item">Al143</li>
+    
   </ul>
   <div class="card-body">
-    <a href="/home" className="card-link">Card link</a>
-    <a href="/home" className="card-link">Another link</a>
+    <a href="/home" className="card-link btn btn-info">Apply leave</a>
+    <a href="/home" className="card-link btn btn-success">Edit Profile</a>
   </div>
 </div>
-    </div>
+
   )
 }
-
 export default profile;
 
 

@@ -4,7 +4,7 @@ export const HeaderComponent = () => {
   return (
     <div>
         <header>
-           <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+           <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
            <div>
              <a href="https:www.google.com" className="navbar-brand">
                  Employee Management Application</a>  
