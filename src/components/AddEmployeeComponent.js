@@ -14,7 +14,7 @@ const AddEmployeeComponent = () => {
         if(id){
             EmployeeService.updateEmployee(id,employee).then((response ) => {
                 console.log(response.data)
-                navigate('/employees');
+                navigate('/home/employees');
         }).catch(error =>{
             console.log(error);
         })
@@ -22,7 +22,7 @@ const AddEmployeeComponent = () => {
         else{
         EmployeeService.createEmployee(employee).then((response ) => {
                 console.log(response.data)
-                navigate('/employees');
+                navigate('/home/employees');
         }).catch(error =>{
             console.log(error);
         })}
@@ -93,7 +93,7 @@ const AddEmployeeComponent = () => {
                         </div>
                         <button className="btn btn-success" onClick={(e) => saveOrUpdateEmployee(e)}
                         style = {{marginRight:"10px"}}> Submit</button>
-                        <Link to ='/employees' className='btn btn-danger'>Cancel</Link>
+                        <Link to ='/home/employees' className='btn btn-danger'>Cancel</Link>
                     </form>
                 </div>
               </div>

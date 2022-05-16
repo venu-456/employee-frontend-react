@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import LoginService from '../services/LoginService';
-const AddLoginComponent = () => {
+const ResetPassword = () => {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [emailId, setEmailId] = useState('')
@@ -83,4 +83,4 @@ const AddLoginComponent = () => {
   )
 }
 
-export default AddLoginComponent
+export default ResetPassword;

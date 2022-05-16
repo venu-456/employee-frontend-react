@@ -1,33 +1,33 @@
+
 import './App.css';
-import {BrowserRouter as Router,Route,Routes} from'react-router-dom'
-import { FooterComponent } from './components/FooterComponent';
-import { HeaderComponent } from './components/HeaderComponent';
-import ResetPassword from './components/ResetPassword';
-import ListEmployeeComponent from './components/ListEmployeeComponent';
-import AddEmployeeComponent from './components/AddEmployeeComponent';
-import Login from './components/Login';
-import AddLoginComponent from './components/AddLoginComponent';
+
+import {Route, Routes} from 'react-router-dom';
+
+import Welcome from "./components/Welcome";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import AddLoginComponent from "./components/AddLoginComponent";
+import ResetPassword from "./components/ResetPassword";
+import {FooterComponent} from "./components/FooterComponent";
+import {HeaderComponent} from "./components/HeaderComponent";
 
 function App() {
-  return (
-    <div>
-      <Router>
-        <HeaderComponent/>
-        <div className="container">
-          <Routes>
-            <Route exact path="/" element ={<Login/>} ></Route>
-            <Route path="/add-Login" element ={<AddLoginComponent/>}></Route>
-            <Route path="/employees" element ={<ListEmployeeComponent/>} ></Route>
-            <Route path="/add-employee" element ={<AddEmployeeComponent/>}></Route>
-            <Route path="/edit-employee/:id" element ={<AddEmployeeComponent/>}></Route>
-            <Route path="/reset-password" element ={<ResetPassword/>} ></Route>
-          </Routes>
-        </div>
-        <FooterComponent/>
-      </Router>
-      
-    </div>
-  );
+    return (
+        <>
+
+            <HeaderComponent/>
+            <Routes>
+                <Route exact path="/" element={<Welcome/>}/>
+                <Route path="/Login" element={<Login/>}/>
+                <Route path="/home/*" element={<Home/>}/>
+                <Route path="/add-Login" element={<AddLoginComponent/>}/>
+                <Route path="/reset-password" element={<ResetPassword/>}/>
+                
+            </Routes>
+            <FooterComponent/>
+        </>
+
+    );
 }
 
 export default App;
