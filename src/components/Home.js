@@ -11,6 +11,8 @@ export const Home = () => {
     const [isActive, setIsActive] = useState(false);
     const [FirstName, setFirstName] = useState('')
   const [Designation, setDesignation] = useState('')
+  const [img, setImg] = useState('')
+  const [role, setRole] = useState('')
     const {id} = useParams();
     const toggle =(e)=>{
         e.preventDefault();
@@ -20,6 +22,8 @@ export const Home = () => {
         EmployeeService.getEmployeeById(id).then((response)=>{
             setFirstName(response.data.firstName)
             setDesignation(response.data.designation)
+            setImg(response.data.img)
+
         }).catch(error =>{
             console.log(error);
         })
@@ -29,7 +33,7 @@ export const Home = () => {
     <div>
         <div className={`vertical-nav ${isActive ? 'active': null } bg-white`} id='sidebar'>
         <div className="py-4 px-3 mb-4 bg-light">
-            <div className="media d-flex align-item-center"><img src="/images/venu.jpg" alt="..." width="80" height="80" className="mr-3 rounded-circle img-thumbnail shadow-sm" />
+            <div className="media d-flex align-item-center"><img src={`/images/${img}`} alt="..." width="80" height="80" className="mr-3 rounded-circle img-thumbnail shadow-sm" />
             <div className="media-body mt-3">
                 <h4 className="m-0 ">{FirstName}</h4>
                 <p className="font-weight-normal text-muted mb-0">{Designation}</p>

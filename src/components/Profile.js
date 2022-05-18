@@ -9,10 +9,11 @@ const Profile = () => {
   const [Designation, setDesignation] = useState('')
   const [Contact, setContact] = useState('')
   const [empid,setEmpid]=useState('')
-  console.log(id);
+  const [img, setImg] = useState('')
+  
   useEffect(() => {
     EmployeeService.getEmployeeById(id).then((response)=>{
-      console.log(response.data)
+        setImg(response.data.img)
         setFirstName("Name : "+response.data.firstName)
         setAbout("About me : "+response.data.about)
         setDesignation("Role : "+response.data.designation)
@@ -25,7 +26,7 @@ const Profile = () => {
   return (
  
       <div className="card mx-auto w-50 p-3" >
-  <img src="/images/venu.jpg" className="card-img-top" alt="..."/>
+  <img src={`/images/${img}`} className="card-img-top" alt="..."/>
   <div className="card-body">
     <h5 className="card-title">{FirstName}</h5>
     <p className="card-text">{About}</p>
