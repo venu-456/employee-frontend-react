@@ -12,7 +12,7 @@ const Login = () => {
           console.log('validating start');
             if(password===response.data.password){
                 console.log('logging');
-            navigate('/home');
+            navigate(`/home/${response.data.emp_id}`);
         }
         else{
           console.log('invalid credentials');

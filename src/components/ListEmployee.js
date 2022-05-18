@@ -1,10 +1,10 @@
 import React,{useState,useEffect} from 'react'
-import { Link } from 'react-router-dom'
+import { Link ,useParams} from 'react-router-dom'
 import EmployeeService from '../services/EmployeeService'
 
 const ListEmployee = () => {
     const [employees,setEmployees]=useState([])
-
+    const {id} = useParams();
     useEffect(() => {
         getAllEmployees();
     }, [])
@@ -45,10 +45,10 @@ const deleteEmployee = (employeeId) =>{
                                     <td>{employee.lastName}</td>
                                     <td>{employee.emailId}</td>
                                     <td>
-                                        <Link className="btn btn-info" to = {`/home/edit-employee/${employee.id}`}>update</Link>
+                                        <Link className="btn btn-info" to = {`/home/${id}/edit-employee/${employee.id}`}>update</Link>
                                         <button className="btn btn-danger" onClick={() => deleteEmployee(employee.id)}
                                         style = {{marginLeft:"10px",marginRight:"10px"}}>delete</button>
-                                        <Link className="btn btn-info" to = {"/home/profile"} >View</Link>
+                                        <Link className="btn btn-info" to = {`/home/${id}/profile/${employee.id}`} >View</Link>
                                     </td>
                                 </tr>
 

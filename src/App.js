@@ -19,7 +19,7 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Welcome/>}/>
                 <Route path="/Login" element={<Login/>}/>
-                <Route path="/home/*" element={<Home/>}/>
+                <Route path="/home/:id/*" element={<Home/>}/>
                 <Route path="/add-Login" element={<AddLoginComponent/>}/>
                 <Route path="/reset-password" element={<ResetPassword/>}/>
                 
