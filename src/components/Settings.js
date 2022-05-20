@@ -1,11 +1,14 @@
 import React,{useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import LoginService from '../services/LoginService';
+import { useLocation } from 'react-router-dom';
 const Settings = () => {
+    const location=useLocation()
     const [userName, setUserName] = useState('')
     const [OldPassword, setOldPassword] = useState('')
     const [NewPassword, setNewPassword] = useState('')
     const [emailId, setEmailId] = useState('')
+    const [empId, setEmpId] = useState(location.pathname.split('/')[2])
     const navigate =useNavigate();
     const Validate =(e) =>{
         e.preventDefault();
@@ -15,7 +18,7 @@ const Settings = () => {
             if(response.data.emailId===emailId && response.data.password===OldPassword){
                 LoginService.Update(login).then((res)=>{
                     console.log(res.data);
-                    navigate('/home');
+                    navigate(`/home/${empId}`);
                     alert("updated new password")
                 })
             }
@@ -26,7 +29,6 @@ const Settings = () => {
         }).catch(error =>{
             console.log(error);
         })
-
     }
   return (
     <div>
@@ -88,7 +90,7 @@ const Settings = () => {
                         </div>
                         <button className="btn btn-success" onClick={(e) => Validate(e)}
                         style = {{marginRight:"10px"}}> Submit</button>
-                        <Link to ='/home' className='btn btn-danger'>Cancel</Link>
+                        <Link to ={`/home/${empId}`} className='btn btn-danger'>Cancel</Link>
                     </form>
                 </div>
               </div>

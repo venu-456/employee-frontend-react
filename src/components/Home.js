@@ -10,9 +10,9 @@ import EmployeeService from '../services/EmployeeService'
 export const Home = () => {
     const [isActive, setIsActive] = useState(false);
     const [FirstName, setFirstName] = useState('')
-  const [Designation, setDesignation] = useState('')
-  const [img, setImg] = useState('')
-  const [role, setRole] = useState('')
+    const [Designation, setDesignation] = useState('')
+    const [img, setImg] = useState('')
+    const [isAdmin, setIsAdmin] = useState(false)
     const {id} = useParams();
     const toggle =(e)=>{
         e.preventDefault();
@@ -23,7 +23,8 @@ export const Home = () => {
             setFirstName(response.data.firstName)
             setDesignation(response.data.designation)
             setImg(response.data.img)
-
+            setIsAdmin(response.data.admin)
+            console.log(isAdmin)
         }).catch(error =>{
             console.log(error);
         })
@@ -40,7 +41,7 @@ export const Home = () => {
             </div>
             </div>
         </div>
-        <p className="text-gray text-center font-weight-bold text-uppercase px-3 small pb-4 mb-0">Menu</p>
+        <p className="text-gray text-center font-weight-bold text-uppercase px-3 small pb-4 mb-0">{isAdmin?"Admin":"User"}</p>
         <ul className="nav flex-column bg-white mb-0">
             <li className="nav-items"><a href={`/home/${id}`} className="nav-link text-dark bg-light">
             <i className='bx bx-home' ></i>
