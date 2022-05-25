@@ -13,6 +13,10 @@ class EmployeeService {
         return axios.get(EMPLOYEE_BASE_REST_API_URL+'/'+employeeId)
     }
     updateEmployee(employeeId,employee){
+        return axios.put(EMPLOYEE_BASE_REST_API_URL+'/byadminOruser/'+employeeId,employee)
+    }
+    updateEmployeeprofile(employeeId,employee){
+        console.log(employee)
         return axios.put(EMPLOYEE_BASE_REST_API_URL+'/'+employeeId,employee)
     }
     deleteEmployee(employeeId){

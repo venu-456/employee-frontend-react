@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import {Link , useParams } from 'react-router-dom';
 import EmployeeService from '../services/EmployeeService'
 import { useLocation } from 'react-router-dom';
-const Profile = () => {
+const ViewProfile = () => {
   const {uid,id} = useParams();
   const location=useLocation()
   const [FirstName, setFirstName] = useState('')
@@ -33,6 +33,9 @@ const Profile = () => {
         console.log(error);
     })
 }, [id])
+if(img===null){
+    setImg('user.jpg')
+}
   return (
  
       <div className="card mx-auto w-50 p-3" >
@@ -48,12 +51,12 @@ const Profile = () => {
   </ul>
   
   <div className="card-body">
-  
+  {isAdmin &&
   <div className='mb-3'>
     <a href="/home" className="card-link btn btn-info">Apply leave</a>
     <Link className="card-link btn btn-success" to = {`/home/${uid}/editprofile/${id}`}>Edit Profile</Link>
   </div>
-  
+  }
   <Link to ={`/home/${uid}/employees`} className='btn btn-danger'>Back</Link>
   </div>
  
@@ -62,6 +65,4 @@ const Profile = () => {
 
   )
 }
-export default Profile;
-
-
+export default ViewProfile;

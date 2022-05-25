@@ -1,19 +1,25 @@
 import React,{useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import EmployeeService from '../services/EmployeeService';
 import LoginService from '../services/LoginService';
 const AddLoginComponent = () => {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [emailId, setEmailId] = useState('')
+    const [emp_id, setEmp_id] = useState('')
     const navigate =useNavigate();
     const saveLogin =(e) =>{
         e.preventDefault();
-        const login ={userName,password,emailId}
+        const login ={userName,password,emailId,emp_id}
+        EmployeeService.getEmployeeById(emp_id).then((response)=>{
         LoginService.Create(login).then((response ) => {
-                navigate('/');
+                navigate(`/home/${emp_id}`);
         }).catch(error =>{
             console.log(error);
         })
+    }).catch(error =>{
+        alert("employee not exist")
+    })
 
     }
   return (
@@ -59,6 +65,18 @@ const AddLoginComponent = () => {
                             value={emailId} 
                             className="form-control"
                             onChange={(e) => setEmailId(e.target.value) } 
+                            >
+                            </input>
+                        </div>
+                        <div className="form-group mb-2">
+                            <label className="form-lable">Email ID</label>
+                            <input 
+                            type="text"
+                            placeholder="Enter Employee ID"
+                            name="emp_id"
+                            value={emp_id} 
+                            className="form-control"
+                            onChange={(e) => setEmp_id(e.target.value) } 
                             >
                             </input>
                         </div>
